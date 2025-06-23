@@ -1,0 +1,58 @@
+<!-- <mat-toolbar color="primary">
+<span>   Movies search engine</span>
+</mat-toolbar>
+ -->
+
+ <mat-toolbar color="primary" class="toolbar">
+  <span class="logo">🎬 Movie Search</span>
+
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/about">About</a>
+
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search Movies</mat-label>
+    <input matInput placeholder="Enter movie name"  [(ngModel)]="searchTerm" />
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-slide-toggle (change)="toggleTheme()" color="accent">
+    Dark Mode
+  </mat-slide-toggle>
+</mat-toolbar>
+
+
+<br><br>
+
+<h1 >Movies list</h1>
+
+<div class="movie-grid">
+  <mat-card *ngFor="let movie of filteredMovies() |  slice:0:6 " class="movie-card">
+    
+    <!-- Movie Poster -->
+    <img 
+  mat-card-image 
+  [src]="movie.image" 
+  alt="{{ movie.name }}" 
+  (error)="onImageError($event)" 
+/>
+
+    <!-- Movie Name -->
+    <mat-card-title>{{ movie.name }}</mat-card-title>
+
+    <!-- Clickable Links -->
+    <mat-card-actions>
+      
+ <a mat-button color="accent" [href]="movie.links[0]" target="_blank">
+    Click to Watch
+  </a>
+
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>
+
