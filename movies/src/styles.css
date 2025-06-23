@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.search-field {
+  width: 250px;
+  margin: 0 12px;
+   margin-top: 20px; /* 👈 moves it down */
+}
+
+.dark-theme {
+  --background: #121212;
+  --text-color: #ffffff;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
